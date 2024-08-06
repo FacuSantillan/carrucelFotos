@@ -1,4 +1,3 @@
-/* src/App.css */
 body {
   font-family: Arial, sans-serif;
   background-color: #f8f9fa;
@@ -77,63 +76,8 @@ body {
   color: #666;
 }
 
-button {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  margin-top: 20px;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: background-color 0.3s;
-}
-
-button:hover {
-  background-color: #0056b3;
-}
-
-input[type="file"] {
-  display: none;
-}
-
-.carousel-container {
-  width: 100vw; /* Ocupa todo el ancho de la ventana */
-  height: 100vh; /* Ocupa toda la altura de la ventana */
-  overflow: hidden; /* Evita el desbordamiento de contenido */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative; /* Para el posicionamiento absoluto de las imágenes */
-}
-
-/* Estilos para el carrusel en sí */
-.carousel .slide {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%; /* Ocupa toda la altura del contenedor */
-  width: 100%;  /* Ocupa todo el ancho del contenedor */
-  position: relative; /* Para el posicionamiento absoluto de las imágenes */
-}
-
-/* Imágenes en el carrusel */
-.carousel .slide img {
-  position: absolute; /* Posiciona la imagen dentro del contenedor */
-  max-width: 100%; /* Ajusta la imagen al ancho del contenedor */
-  max-height: 100%; /* Ajusta la imagen a la altura del contenedor */
-  object-fit: contain; /* Ajusta la imagen para que se muestre completamente sin distorsionar */
-  border-radius: 10px; /* Bordes redondeados opcionales */
-}
-
-/* Estilos específicos para imágenes verticales */
-.carousel .slide img.vertical {
-  max-height: 100vh; /* Limita la altura máxima para imágenes verticales */
-  width: auto; /* Ajusta el ancho automáticamente para mantener la proporción */
-}
-
-/* Estilos específicos para imágenes horizontales */
-.carousel .slide img.horizontal {
-  width: 100vw; /* Ajusta el ancho a todo el ancho de la ventana */
-  height: auto; /* Ajusta la altura automáticamente para mantener la proporción */
+.success-message {
+  color: green;
+  font-size: 14px;
+  margin-top: 10px;
 }

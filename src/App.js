@@ -12,7 +12,7 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/" element={<UploadImage setImages={setImages} />} />
-          <Route path="/carousel" element={<ImageCarousel images={images} setImages={setImages} />} />
+          <Route path="/carousel" element={<ImageCarousel images={images} />} />
         </Routes>
       </div>
     </Router>

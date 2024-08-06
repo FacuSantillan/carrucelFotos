@@ -38,14 +38,14 @@ const UploadImage = ({ setImages }) => {
         id="fileInput"
       />
       <button onClick={() => document.getElementById('fileInput').click()}>
-        Buscar imagen
+        Seleccionar Foto
       </button>
       {preview && (
         <>
           <div className="preview-container">
             <img src={preview} alt="Image Preview" className="image-preview" />
           </div>
-          <button onClick={handleUpload}>Publicar imagen</button>
+          <button onClick={handleUpload}>Publicar</button>
         </>
       )}
     </div>
