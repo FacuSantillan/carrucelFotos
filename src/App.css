@@ -1,6 +1,6 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #f8f9fa;
+  background-color: #000000;
   margin: 0;
   padding: 0;
 }
@@ -80,4 +80,21 @@ body {
   color: green;
   font-size: 14px;
   margin-top: 10px;
+}
+
+.carousel-container {
+  width: 100% auto;
+  height: 100% auto;
+  overflow: hidden;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel .slide img {
+  width: 50%; /* Ajusta el ancho de las imágenes al 10% del contenedor */
+  height: 100vh; /* Ajusta la altura de las imágenes al 100% de la ventana */
+  object-fit:scale-down; /* Ajusta la imagen para cubrir todo el contenedor */
+  object-position: center;
 }
