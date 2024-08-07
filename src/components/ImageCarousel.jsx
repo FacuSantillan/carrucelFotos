@@ -16,7 +16,7 @@ const ImageCarousel = () => {
         const urls = await Promise.all(
           listResult.items.map((item) => getDownloadURL(item))
         );
-        setImagesState(urls);
+        setImagesState(urls.reverse()); // Reverse the order to make the newest image first
       } catch (error) {
         console.log('Error fetching images:', error);
       }
@@ -36,7 +36,7 @@ const ImageCarousel = () => {
       uploadBytes(imageRef, file)
         .then(() => getDownloadURL(imageRef))
         .then((url) => {
-          setImagesState((prevImages) => [...prevImages, url]);
+          setImagesState((prevImages) => [url, ...prevImages]); // Add the new image URL at the beginning
         })
         .catch((error) => console.log('Error uploading image:', error));
     });
@@ -44,7 +44,13 @@ const ImageCarousel = () => {
 
   return (
     <div className="carousel-container">
-      <Carousel autoPlay interval={4000} infiniteLoop showThumbs={false}>
+      <Carousel 
+        autoPlay 
+        interval={4000} 
+        infiniteLoop 
+        showThumbs={false} 
+        stopOnHover={false}  // Desactiva la pausa al pasar el ratón por encima
+      >
         {images.map((image, index) => (
           <div key={index} className="slide">
             <img src={image} alt={`carousel ${index}`} className="carousel-image" />
@@ -59,6 +65,9 @@ const ImageCarousel = () => {
         style={{ display: 'none' }}
         id="addMoreImages"
       />
+      <label htmlFor="addMoreImages" className="add-image-label">
+        Añadir Imágenes
+      </label>
     </div>
   );
 };
