@@ -1,15 +1,22 @@
 body {
   font-family: Arial, sans-serif;
   background-color: #000000;
+  background-image: url(./fondo.jpg);
+  background-size:250%; /* Hace que la imagen cubra todo el contenedor */
+  background-repeat: no-repeat;
+  background-position: center; /* Centra la imagen */
   margin: 0;
   padding: 0;
 }
+
 
 .App {
   text-align: center;
 }
 
 .upload-container {
+  position: relative;
+  top: 50vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,25 +24,59 @@ body {
   max-width: 600px;
   margin: 20px auto;
   padding: 20px;
-  background: #fff;
+  background: #ffffff00;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.texto-imagen{
+  position: absolute;
+  top: -53vh;
+  width: 30vh;
+  height: 30vh;
 }
 
 .upload-container button {
-  background-color: #007bff;
+  background-color: #ff58bf;
   color: white;
   border: none;
   padding: 10px 20px;
-  font-size: 16px;
+  position: absolute;
+  top: -18vh;
+  font-size: 15px;
   cursor: pointer;
   border-radius: 5px;
   transition: background-color 0.3s;
   margin: 10px;
 }
 
+.texto {
+  position: absolute;
+  color: #1b1b1b;
+  top: -25vh;
+  left: -100vw;
+  animation: slideIn 4s forwards; /* Aplica la animación */
+}
+
+/* Define la animación */
+@keyframes slideIn {
+  from {
+    left: -100vw;
+  }
+  to {
+    left: 7vh;
+  }
+}
+
+.imagen{
+  position: relative;
+  width: 40vh;
+  height: 50vh;
+  top: -11vh;
+  left: -1vh;
+}
+
 .upload-container button:hover {
-  background-color: #0056b3;
+  background-color: #b30068;
 }
 
 .upload-container input[type="file"] {
@@ -62,12 +103,22 @@ body {
   text-align: center;
 }
 
+.success-message{
+  position: absolute;
+  top: -11.5vh;
+  font-weight: 10px;
+}
+
 .image-preview {
   max-width: 100%;
+  z-index: 999;
   max-height: 400px;
   border: 2px solid #ddd;
   border-radius: 10px;
-  margin-top: 10px;
+  position: relative;
+  margin-top: -100vh;
+  top: -17vh;
+  left: px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
