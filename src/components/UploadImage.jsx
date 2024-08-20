@@ -15,7 +15,7 @@ const UploadImage = ({ setImages }) => {
       const reader = new FileReader();
       reader.onloadend = () => {
         setPreview(reader.result);
-        setIsImageSelected(true); // Cambia el estado al seleccionar una imagen
+        setIsImageSelected(true);
       };
       reader.readAsDataURL(file);
     }
@@ -23,24 +23,30 @@ const UploadImage = ({ setImages }) => {
 
   const handleUpload = () => {
     if (preview) {
-      const imageRef = ref(storage, `images/${Date.now()}`);
+      const imageRef = ref(storage, `carrucel/${Date.now()}`);
       uploadString(imageRef, preview, 'data_url').then(() => {
         getDownloadURL(imageRef).then(url => {
           setImages(prevImages => [...prevImages, url]);
-          setPreview(null); // Clear the preview after upload
-          setIsImageSelected(false); // Restablece el estado después de cargar la imagen
-          setUploadSuccess(true); // Muestra el mensaje de éxito
-          setTimeout(() => setUploadSuccess(false), 3000); // Oculta el mensaje después de 3 segundos
+          setPreview(null);
+          setIsImageSelected(false);
+          setUploadSuccess(true);
+          setTimeout(() => setUploadSuccess(false), 3000);
         });
       }).catch(error => console.log(error));
     }
+  };
+
+  const handleChangeImage = () => {
+    setPreview(null);
+    setIsImageSelected(false);
+    document.getElementById('fileInput').click(); // Abre nuevamente el selector de archivos
   };
 
   return (
     <div className="upload-container">
       <img src={texto} className='texto-imagen'/>
       <img src={foto} className='imagen'/>
-      <h2 className='texto'>Comparte tus momentos!</h2>
+      <h2 className='texto'>¡Comparte tus momentos!</h2>
       <input
         type="file"
         accept="image/*"
@@ -48,15 +54,16 @@ const UploadImage = ({ setImages }) => {
         style={{ display: 'none' }}
         id="fileInput"
       />
-      <button onClick={() => {
-        if (isImageSelected) {
-          handleUpload();
-        } else {
-          document.getElementById('fileInput').click();
-        }
-      }}>
-        {isImageSelected ? 'Publicar' : 'Seleccionar Foto'}
-      </button>
+      {isImageSelected ? (
+        <>
+          <button className="upload-button" onClick={handleUpload}>Publicar</button>
+          <button className="change-button" onClick={handleChangeImage}>Cambiar Imagen</button>
+        </>
+      ) : (
+        <button onClick={() => document.getElementById('fileInput').click()}>
+          Seleccionar Foto
+        </button>
+      )}
       {preview && (
         <div className="preview-container">
           <img src={preview} alt="Image Preview" className="image-preview" />

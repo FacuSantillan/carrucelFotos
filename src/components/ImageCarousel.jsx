@@ -10,7 +10,7 @@ const ImageCarousel = () => {
 
   useEffect(() => {
     const fetchImages = async () => {
-      const storageRef = ref(storage, 'images/');
+      const storageRef = ref(storage, 'carrucel/');
       try {
         const listResult = await listAll(storageRef);
         const urls = await Promise.all(
@@ -43,7 +43,10 @@ const ImageCarousel = () => {
   };
 
   return (
-    <div className="carousel-container">
+    <div>
+<h1 className='texto-carousel'>Mis XV</h1>
+<div className="carousel-container">
+
       <Carousel 
         autoPlay 
         interval={4000} 
@@ -65,10 +68,11 @@ const ImageCarousel = () => {
         style={{ display: 'none' }}
         id="addMoreImages"
       />
-      <label htmlFor="addMoreImages" className="add-image-label">
-        Añadir Imágenes
-      </label>
+
     </div>
+    </div>
+
+    
   );
 };
 
