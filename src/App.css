@@ -100,6 +100,14 @@ body {
   left: -1vh;
 }
 
+.imagen-logo{
+  position:fixed;
+  width: 30vh;
+  height: 20vh;
+  top: 80%;
+  left: 50%;
+}
+
 .preview-container {
   margin-top: 20px;
   text-align: center;

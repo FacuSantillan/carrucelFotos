@@ -3,6 +3,9 @@ import { ref, uploadString, getDownloadURL } from 'firebase/storage';
 import { storage } from '../firebase';
 import texto from '../texto.png';
 import foto from '../imagen.png';
+import logo1 from '../logo1.png';
+import logo2 from '../logo2.jpg'
+
 
 const UploadImage = ({ setImages }) => {
   const [preview, setPreview] = useState(null);
@@ -74,6 +77,7 @@ const UploadImage = ({ setImages }) => {
           ¡Imagen subida con éxito!
         </div>
       )}
+      <img src={logo1} alt="Logo" className='imagen-logo'/>
     </div>
   );
 };
