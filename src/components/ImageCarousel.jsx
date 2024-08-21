@@ -43,9 +43,9 @@ const ImageCarousel = () => {
   };
 
   return (
-    <div>
-<h1 className='texto-carousel'>Mis XV</h1>
-<div className="carousel-container">
+    <div className='carousel-all'>
+      <h1 className='texto-carousel'>Mis XV</h1>
+    <div className="carousel-container">
 
       <Carousel 
         autoPlay 
